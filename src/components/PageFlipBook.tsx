@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import {
   Loader2,
   ArrowLeft,
-  X,
+  ArrowRight,
   ZoomIn,
   ZoomOut,
-  ArrowRight,
+  X,
 } from "lucide-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import "react-medium-image-zoom/dist/styles.css";
@@ -137,7 +137,7 @@ export const PageFlipBook = ({ pages = [] }: PageFlipBookProps) => {
       </div>
 
       {/* Page numbers */}
-      <div className="mt-4 text-amber-800">
+      <div className="mt-4 text-xs text-amber-800 sm:text-sm">
         Pages {currentPage + 1}-{Math.min(currentPage + 2, pages.length)} of{" "}
         {pages.length}
       </div>
@@ -164,9 +164,7 @@ export const PageFlipBook = ({ pages = [] }: PageFlipBookProps) => {
             onClick={() => turnPage("next")}
             className={`px-4 py-2 transition-all duration-300 rounded-lg shadow-lg 
         bg-amber-100 text-amber-800 hover:bg-amber-200 
-        ${
-          currentPage >= pages.length - 1 ? "opacity-50 cursor-not-allowed" : ""
-        }`}
+        ${currentPage >= pages.length - 1 ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={currentPage >= pages.length - 1}
           >
             <ArrowRight className="z-50 w-6 h-6 text-amber-800" />
